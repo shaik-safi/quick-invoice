@@ -1,8 +1,15 @@
 package com.shaik.quickinvoice.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shaik.quickinvoice.model.Company;
@@ -13,11 +20,24 @@ import com.shaik.quickinvoice.repository.CompanyRepository;
 @RestController
 public class CompanyClientController {
 
-	@Autowired
+    @Autowired
     private CompanyClientRepository companyClientRepository;
-	
-	@PostMapping("/addCompanyClient")
-	public void addNewCompanyClient(@RequestBody CompanyClient companyClient) {
-		companyClientRepository.save(companyClient);
+
+    @Autowired
+    private CompanyRepository companyRepository;
+
+    @PostMapping("/add-client")
+    public ResponseEntity<CompanyClient> addCompanyClient(@RequestBody CompanyClient companyClient, @RequestParam Long companyId) {
+        Optional<Company> companyOptional = companyRepository.findById(companyId);
+            Company company = companyOptional.get();
+            companyClient.setCompany(company);
+            CompanyClient savedClient = companyClientRepository.save(companyClient);
+            return ResponseEntity.ok(savedClient);
+    }
+    @RequestMapping("get-all-client")
+	public ResponseEntity<Iterable<CompanyClient>> getAllClient() {
+	    Iterable<CompanyClient> allCompany= companyClientRepository.findAll();
+	    return ResponseEntity.status(HttpStatus.CREATED).body(allCompany);
 	}
+
 }
