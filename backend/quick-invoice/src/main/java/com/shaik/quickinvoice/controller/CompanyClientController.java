@@ -38,13 +38,13 @@ public class CompanyClientController {
 	    return ResponseEntity.status(HttpStatus.CREATED).body(allCompany);
 	}
     
-    @GetMapping("/get-invoice")
-    public ResponseEntity<CompanyClient> getInvoice(@RequestParam String clientName) {
-        Iterable<CompanyClient> companyClients = companyClientRepository.findByClientName(clientName);
-        for (CompanyClient companyClient : companyClients) {
-            return ResponseEntity.ok(companyClient);
-        }
-        return ResponseEntity.notFound().build();
-    }
+//    @GetMapping("/get-invoice")
+//    public ResponseEntity<CompanyClient> getInvoice(@RequestParam String clientName) {
+//        Iterable<CompanyClient> companyClients = companyClientRepository.findByClientName(clientName);
+//        for (CompanyClient companyClient : companyClients) {
+//            return ResponseEntity.ok(companyClient);
+//        }
+//        return ResponseEntity.notFound().build();
+//    }
 
 }

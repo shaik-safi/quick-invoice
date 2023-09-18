@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Company from './components/Company'
+import GeneratePdf from './components/GeneratePdf'
 import Client from './components/Client'
 import Invoice from './components/Invoice'
 import ClientList from './components/ClientList'
@@ -21,6 +22,7 @@ function App() {
         <Route path="/add-client" element={<Client />} />
         <Route path="/list-client" element={<ClientList/>} />
         <Route path="/add-invoice" element={<Invoice />} />
+        <Route path="/generate-pdf" element={<GeneratePdf />} />
           {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>
       </Container>

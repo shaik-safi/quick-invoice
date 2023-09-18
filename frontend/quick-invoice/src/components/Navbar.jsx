@@ -18,7 +18,7 @@ function Header() {
             <Nav.Link as={Link} to="/list-client">List Client</Nav.Link>
             </NavDropdown>
             <Nav.Link as={Link} to="/add-invoice">Invoice</Nav.Link>
-
+            <Nav.Link as={Link} to="/generate-pdf">Generate PDF</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
