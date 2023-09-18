@@ -14,13 +14,13 @@ public class InvoiceDetails {
     private Long productId;
     private String productName;
     private String productDescription;
-    private Integer unitPrice;
-    private Integer quantity;
+    private Integer unitPrice = 0;
+    private Integer quantity = 0;
     
     @ManyToOne
     @JoinColumn(name = "invoiceId")
     private Invoice invoice;
-
+    
 	public Long getProductId() {
 		return productId;
 	}

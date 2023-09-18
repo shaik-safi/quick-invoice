@@ -79,10 +79,7 @@ function Client() {
 
           <Form.Group as={Col} controlId="formGridState">
             <Form.Label>State</Form.Label>
-            <Form.Select name="state" defaultValue="Choose..." onChange={handleChange}>
-              <option>karnataka</option>
-              <option>mumbai</option>
-            </Form.Select>
+            <Form.Control name="state" onChange={handleChange} />
           </Form.Group>
         </Row>
 

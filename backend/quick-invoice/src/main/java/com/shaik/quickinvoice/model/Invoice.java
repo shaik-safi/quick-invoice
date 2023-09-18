@@ -14,12 +14,8 @@ public class Invoice {
     private Long invoiceId;
     private String invoiceNumber;
     private String dateIssue;
-    private String totalCost;
+    private Integer totalCost = 0;
     private String accountNumber;
-    
-    @ManyToOne
-    @JoinColumn(name = "companyId")
-    private Company company;
     
     @ManyToOne
     @JoinColumn(name = "clientId")
@@ -49,11 +45,11 @@ public class Invoice {
 		this.dateIssue = dateIssue;
 	}
 
-	public String getTotalCost() {
+	public Integer getTotalCost() {
 		return totalCost;
 	}
 
-	public void setTotalCost(String totalCost) {
+	public void setTotalCost(Integer totalCost) {
 		this.totalCost = totalCost;
 	}
 
@@ -65,13 +61,13 @@ public class Invoice {
 		this.accountNumber = accountNumber;
 	}
 
-	public Company getCompany() {
-		return company;
-	}
+//	public Company getCompany() {
+//		return company;
+//	}
 
-	public void setCompany(Company company) {
-		this.company = company;
-	}
+//	public void setCompany(Company company) {
+//		this.company = company;
+//	}
 
 	public CompanyClient getClient() {
 		return client;
@@ -84,7 +80,7 @@ public class Invoice {
 	@Override
 	public String toString() {
 		return "Invoice [invoiceId=" + invoiceId + ", invoiceNumber=" + invoiceNumber + ", dateIssue=" + dateIssue
-				+ ", totalCost=" + totalCost + ", accountNumber=" + accountNumber + ", company=" + company + ", client="
+				+ ", totalCost=" + totalCost + ", accountNumber=" + accountNumber  + ", client="
 				+ client + "]";
 	}
     
