@@ -27,10 +27,7 @@ public class CompanyClientController {
     private CompanyRepository companyRepository;
 
     @PostMapping("/add-client")
-    public ResponseEntity<CompanyClient> addCompanyClient(@RequestBody CompanyClient companyClient, @RequestParam Long companyId) {
-        Optional<Company> companyOptional = companyRepository.findById(companyId);
-            Company company = companyOptional.get();
-            companyClient.setCompany(company);
+    public ResponseEntity<CompanyClient> addCompanyClient(@RequestBody CompanyClient companyClient) {
             CompanyClient savedClient = companyClientRepository.save(companyClient);
             return ResponseEntity.ok(savedClient);
     }

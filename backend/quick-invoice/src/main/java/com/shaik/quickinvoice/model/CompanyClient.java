@@ -16,13 +16,9 @@ public class CompanyClient {
     private String phone;
     private String email;
     private String city;
-    private String street;
-    private String postalCode;
+    private String state;
+    private String zipCode;
     private String country;
-    
-    @ManyToOne
-    @JoinColumn(name = "companyId")
-    private Company company;
 
 	public Long getClientId() {
 		return clientId;
@@ -64,20 +60,20 @@ public class CompanyClient {
 		this.city = city;
 	}
 
-	public String getStreet() {
-		return street;
+	public String getstate() {
+		return state;
 	}
 
-	public void setStreet(String street) {
-		this.street = street;
+	public void setstate(String state) {
+		this.state = state;
 	}
 
-	public String getPostalCode() {
-		return postalCode;
+	public String getzipCode() {
+		return zipCode;
 	}
 
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
+	public void setzipCode(String zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getCountry() {
@@ -88,19 +84,10 @@ public class CompanyClient {
 		this.country = country;
 	}
 
-	public Company getCompany() {
-		return company;
-	}
-
-	public void setCompany(Company company) {
-		this.company = company;
-	}
-
 	@Override
 	public String toString() {
 		return "CompanyClient [clientId=" + clientId + ", clientName=" + clientName + ", phone=" + phone + ", email="
-				+ email + ", city=" + city + ", street=" + street + ", postalCode=" + postalCode + ", country="
-				+ country + ", company=" + company + "]";
+				+ email + "]";
 	}
     
     

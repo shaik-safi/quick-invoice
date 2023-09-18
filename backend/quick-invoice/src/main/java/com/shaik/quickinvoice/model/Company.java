@@ -14,7 +14,7 @@ public class Company {
     private String phone;
     private String email;
     private String city;
-    private String street;
+    private String state;
     private String zipCode;
     private String country;
 	public Long getCompanyId() {
@@ -47,11 +47,11 @@ public class Company {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getStreet() {
-		return street;
+	public String getstate() {
+		return state;
 	}
-	public void setStreet(String street) {
-		this.street = street;
+	public void setstate(String state) {
+		this.state = state;
 	}
 	public String getZipCode() {
 		return zipCode;
@@ -68,8 +68,11 @@ public class Company {
 	@Override
 	public String toString() {
 		return "Company [companyId=" + companyId + ", companyName=" + companyName + ", phone=" + phone + ", email="
-				+ email + ", city=" + city + ", street=" + street + ", zipCode=" + zipCode + ", country=" + country
+				+ email + ", city=" + city + ", state=" + state + ", zipCode=" + zipCode + ", country=" + country
 				+ "]";
+	}
+	public Long getId() {
+		return companyId;
 	}
     
     

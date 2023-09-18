@@ -33,5 +33,15 @@ public class CompanyController {
 	    List<Company> allCompany= companyRepository.findAll();
 	    return ResponseEntity.status(HttpStatus.CREATED).body(allCompany);
 	}
+	
+	@RequestMapping("get-companyid")
+	public Long getCompanyIdByName(@RequestBody String name) {
+		  Company company = companyRepository.findBycompanyName(name);
+		  if (company != null) {
+		    return company.getId();
+		  } else {
+		    return null;
+		  }
+		}
 
 }
