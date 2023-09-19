@@ -18,6 +18,8 @@ function Company() {
     country: '',
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (event) => {
     setFormData({
       ...formData,
@@ -25,24 +27,59 @@ function Company() {
     });
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.companyName.trim()) {
+      newErrors.companyName = 'Company Name is required';
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone is required';
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+    if (!formData.city.trim()) {
+      newErrors.city = 'City is required';
+    }
+    if (!formData.state.trim()) {
+      newErrors.state = 'State is required';
+    }
+    if (!formData.zip.trim()) {
+      newErrors.zip = 'Zip is required';
+    }
+    if (!formData.country.trim()) {
+      newErrors.country = 'Country is required';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(JSON.stringify(formData));
-    const url = 'http://localhost:8080/add-company';
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
 
-    if (response.ok) {
-      navigate('/');
-    } else {
-      console.log("error");
-    }
+      console.log(JSON.stringify(formData));
+      const url = 'http://localhost:8080/add-company';
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        navigate('/');
+      } else {
+        console.log('error');
+      }
   };
 
   return (
@@ -56,7 +93,11 @@ function Company() {
               name="companyName"
               placeholder="Enter company name"
               onChange={handleChange}
+              isInvalid={!!errors.companyName}
             />
+            <Form.Control.Feedback type="invalid">
+              {errors.companyName}
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridEmail">
@@ -66,7 +107,11 @@ function Company() {
               name="email"
               placeholder="Enter email"
               onChange={handleChange}
+              isInvalid={!!errors.email}
             />
+            <Form.Control.Feedback type="invalid">
+              {errors.email}
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
@@ -75,30 +120,46 @@ function Company() {
               name="phone"
               placeholder="9**********"
               onChange={handleChange}
+              isInvalid={!!errors.phone}
             />
+            <Form.Control.Feedback type="invalid">
+              {errors.phone}
+            </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridCity">
             <Form.Label>City</Form.Label>
-            <Form.Control name="city" onChange={handleChange} />
+            <Form.Control name="city" onChange={handleChange} isInvalid={!!errors.city} />
+            <Form.Control.Feedback type="invalid">
+              {errors.city}
+            </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} controlId="formGridState">
             <Form.Label>State</Form.Label>
-            <Form.Control name="state" onChange={handleChange} />
+            <Form.Control name="state" onChange={handleChange} isInvalid={!!errors.state} />
+            <Form.Control.Feedback type="invalid">
+              {errors.state}
+            </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
         <Row>
           <Form.Group as={Col} controlId="formGridZip">
-            <Form.Label>Zip/</Form.Label>
-            <Form.Control name="zipCode" onChange={handleChange} />
+            <Form.Label>Zip</Form.Label>
+            <Form.Control name="zipCode" onChange={handleChange} isInvalid={!!errors.zip}/>
+            <Form.Control.Feedback type="invalid">
+              {errors.zip}
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridCountry">
             <Form.Label>Country</Form.Label>
-            <Form.Control name="country" onChange={handleChange} />
+            <Form.Control name="country" onChange={handleChange} isInvalid={!!errors.country}/>
+            <Form.Control.Feedback type="invalid">
+              {errors.country}
+            </Form.Control.Feedback>
           </Form.Group>
         </Row>
 

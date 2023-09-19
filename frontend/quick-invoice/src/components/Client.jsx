@@ -85,7 +85,7 @@ function Client() {
 
         <Row>
           <Form.Group as={Col} controlId="formGridZip">
-            <Form.Label>Zip/</Form.Label>
+            <Form.Label>Zip</Form.Label>
             <Form.Control name="zipCode" onChange={handleChange} />
           </Form.Group>
 

@@ -6,12 +6,14 @@ import java.util.Optional;
  import org.springframework.beans.factory.annotation.Autowired;
  import org.springframework.http.ResponseEntity;
  import org.springframework.stereotype.Service;
- 
- import com.shaik.quickinvoice.model.CompanyClient;
+
+import com.shaik.quickinvoice.model.Company;
+import com.shaik.quickinvoice.model.CompanyClient;
 import com.shaik.quickinvoice.model.CustomResponse;
 import com.shaik.quickinvoice.model.Invoice;
 import com.shaik.quickinvoice.model.InvoiceDetails;
 import com.shaik.quickinvoice.repository.CompanyClientRepository;
+import com.shaik.quickinvoice.repository.CompanyRepository;
 import com.shaik.quickinvoice.repository.InvoiceDetailsRepository;
 import com.shaik.quickinvoice.repository.InvoiceRepository;
  
@@ -23,8 +25,11 @@ import com.shaik.quickinvoice.repository.InvoiceRepository;
      private InvoiceRepository invoiceRepository;
      @Autowired
      private InvoiceDetailsRepository invoiceDetailsRepository;
+     @Autowired
+     private CompanyRepository companyRepository;
 
-     public CustomResponse getInvoiceDetails(String clientName) {
+     public CustomResponse getInvoiceDetails(String companyName, String clientName) {
+    	 Company company = companyRepository.findBycompanyName(companyName);
          CompanyClient companyClient = companyClientRepository.findOneByClientName(clientName);
          System.out.println(companyClient.toString());
          Optional<Invoice> optionalInvoice = invoiceRepository.findByClientClientId(companyClient.getClientId());
@@ -37,6 +42,6 @@ import com.shaik.quickinvoice.repository.InvoiceRepository;
          }
          List<InvoiceDetails> invoices = invoiceDetailsRepository.findByInvoiceInvoiceId(invoice.getInvoiceId());
 
-         return new CustomResponse(companyClient, invoice, invoices);
+         return new CustomResponse(company, companyClient, invoice, invoices);
      }
  }

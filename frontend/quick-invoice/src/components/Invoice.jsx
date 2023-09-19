@@ -84,7 +84,6 @@ function Invoice() {
           const invoiceId = await invoiceResponse.json();
           console.log(invoiceId);
   
-          // Post invoice details
           for (const invoiceDetail of invoiceDetails) {
             const success = await makePostRequest(invoiceDetail, invoiceId);
             if (success) {
@@ -94,7 +93,6 @@ function Invoice() {
             }
           }
   
-          // Navigate to the desired location
           navigate('/');
         } else {
           console.log("Error getting invoice ID");

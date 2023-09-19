@@ -16,8 +16,8 @@ public class AllDetailsController {
     private InvoiceService invoiceService;
 
     @GetMapping("/get-invoice")
-    public ResponseEntity<CustomResponse> getInvoice(@RequestParam String clientName) {
-        CustomResponse response = invoiceService.getInvoiceDetails(clientName);
+    public ResponseEntity<CustomResponse> getInvoice(@RequestParam String companyName, @RequestParam String clientName) {
+        CustomResponse response = invoiceService.getInvoiceDetails(companyName,clientName);
         
         if (response != null) {
             return ResponseEntity.ok(response);
