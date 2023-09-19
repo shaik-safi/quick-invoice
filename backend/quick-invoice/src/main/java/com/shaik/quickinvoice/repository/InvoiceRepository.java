@@ -6,7 +6,7 @@ import com.shaik.quickinvoice.model.Invoice;
 
 public interface InvoiceRepository extends CrudRepository<Invoice,Long> {
 
-	Iterable<Invoice> findByInvoiceNumber(String InvoiceNumber);
-
-	Optional<Invoice> findByClientClientId(Long clientId);
+//	Iterable<Invoice> findByInvoiceNumber(String InvoiceNumber);
+//
+//	Optional<Invoice> findByClientClientId(Long clientId);
 }

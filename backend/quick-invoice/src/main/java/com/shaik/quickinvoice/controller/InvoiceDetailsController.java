@@ -18,7 +18,7 @@ import com.shaik.quickinvoice.model.InvoiceDetails;
 import com.shaik.quickinvoice.repository.InvoiceDetailsRepository;
 import com.shaik.quickinvoice.repository.InvoiceRepository;
 
-@RestController
+//@RestController
 public class InvoiceDetailsController {
 	@Autowired
     private InvoiceDetailsRepository invoiceDetailsRepository;

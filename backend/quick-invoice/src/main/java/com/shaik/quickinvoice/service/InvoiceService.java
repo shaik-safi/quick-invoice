@@ -17,7 +17,7 @@ import com.shaik.quickinvoice.repository.CompanyRepository;
 import com.shaik.quickinvoice.repository.InvoiceDetailsRepository;
 import com.shaik.quickinvoice.repository.InvoiceRepository;
  
- @Service
+// @Service
  public class InvoiceService {
      @Autowired
      private CompanyClientRepository companyClientRepository;

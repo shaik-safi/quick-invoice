@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-@Entity
+//@Entity
 public class Sample {
 	public Sample(long id, String name, String school) {
 		super();

@@ -10,7 +10,7 @@ import com.shaik.quickinvoice.model.CompanyClient;
 import com.shaik.quickinvoice.model.CustomResponse;
 import com.shaik.quickinvoice.service.InvoiceService;
 
-@RestController
+//@RestController
 public class AllDetailsController {
     @Autowired
     private InvoiceService invoiceService;

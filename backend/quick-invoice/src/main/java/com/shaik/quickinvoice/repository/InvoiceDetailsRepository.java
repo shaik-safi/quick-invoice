@@ -9,5 +9,5 @@ import com.shaik.quickinvoice.model.Invoice;
 import com.shaik.quickinvoice.model.InvoiceDetails;
 
 public interface InvoiceDetailsRepository extends JpaRepository<InvoiceDetails,Long> {
-	List<InvoiceDetails> findByInvoiceInvoiceId(Long clientId);
+//	List<InvoiceDetails> findByInvoiceInvoiceId(Long clientId);
 }

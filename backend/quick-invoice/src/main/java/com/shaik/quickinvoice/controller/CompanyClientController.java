@@ -18,7 +18,7 @@ import com.shaik.quickinvoice.model.CompanyClient;
 import com.shaik.quickinvoice.repository.CompanyClientRepository;
 import com.shaik.quickinvoice.repository.CompanyRepository;
 
-@RestController
+//@RestController
 public class CompanyClientController {
 
     @Autowired

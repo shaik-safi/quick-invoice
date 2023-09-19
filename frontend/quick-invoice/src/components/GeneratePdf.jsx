@@ -81,7 +81,7 @@ function GeneratePdf() {
       {data ? (
         <>
         <Container className='p-5' ref={pdfRef}>
-          <h1 className='text-center mb-3'>Invoice</h1>
+          <h1 className='text-center mb-3 mt-5'>Invoice</h1>
           <h2 className='text-center mb-5'>{company.companyName}</h2>
           <Row className='mb-5'>
             <Col>

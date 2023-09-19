@@ -7,6 +7,7 @@ import GeneratePdf from './components/GeneratePdf'
 import Client from './components/Client'
 import Invoice from './components/Invoice'
 import ClientList from './components/ClientList'
+import Test from './components/Test'
 import Container from 'react-bootstrap/esm/Container'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/list-client" element={<ClientList/>} />
         <Route path="/add-invoice" element={<Invoice />} />
         <Route path="/generate-pdf" element={<GeneratePdf />} />
+        <Route path="/test" element={<Test/>} />
           {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>
       </Container>

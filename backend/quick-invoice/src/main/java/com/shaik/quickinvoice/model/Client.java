@@ -5,10 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Company {
-    @Id
+public class Client {
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(unique=true)
@@ -19,4 +21,8 @@ public class Company {
     private String state;
     private String zipCode;
     private String country;
+    
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 }

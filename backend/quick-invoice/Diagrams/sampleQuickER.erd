@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="sampleQuickER">
+	<entities>
+		<data-source id="mysql8-18aad392d7b-219212d3e7dc9f">
+			<entity id="1" name="company" fq-name="quickinvoice.company">
+				<path name="quickinvoice"/>
+			</entity>
+			<entity id="2" name="company_client" fq-name="quickinvoice.company_client">
+				<path name="quickinvoice"/>
+			</entity>
+			<entity id="3" name="invoice" fq-name="quickinvoice.invoice">
+				<path name="quickinvoice"/>
+			</entity>
+			<entity id="4" name="invoice_details" fq-name="quickinvoice.invoice_details">
+				<path name="quickinvoice"/>
+			</entity>
+			<entity id="5" name="sample" fq-name="quickinvoice.sample">
+				<path name="quickinvoice"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="FK15727g8l4gupwrbgluc40wra0" fq-name="quickinvoice.invoice.FK15727g8l4gupwrbgluc40wra0" type="fk" pk-ref="2" fk-ref="3"/>
+		<relation name="FKpc7xa72mljy7weoct7uubgjy7" fq-name="quickinvoice.invoice_details.FKpc7xa72mljy7weoct7uubgjy7" type="fk" pk-ref="3" fk-ref="4"/>
+	</relations>
+</diagram>

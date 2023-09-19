@@ -1,22 +1,22 @@
 package com.shaik.quickinvoice.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
-public class Company {
-    @Id
+public class Event {
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique=true)
-    private String name;
-    private String phone;
-    private String email;
-    private String city;
-    private String state;
-    private String zipCode;
-    private String country;
+	private String name;
+	private String date;
+	
+	@ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
 }
