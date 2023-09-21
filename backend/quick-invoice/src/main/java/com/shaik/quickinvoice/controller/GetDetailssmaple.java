@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.shaik.quickinvoice.model.Company;
 
 //@RestController
-public class GetDetails {
+public class GetDetailssmaple {
 	
 	@RequestMapping("invoice-details")
 	public ResponseEntity<List<Company>> getAllCompany() {

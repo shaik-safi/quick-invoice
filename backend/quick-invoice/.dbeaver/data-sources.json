@@ -75,6 +75,21 @@
 				"type": "dev",
 				"auth-model": "native"
 			}
+		},
+		"mysql8-18ab6f7a1d5-494379e645424275": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "localhost 6",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"url": "jdbc:mysql://localhost:3306/",
+				"configurationType": "MANUAL",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"auth-model": "native"
+			}
 		}
 	},
 	"connection-types": {

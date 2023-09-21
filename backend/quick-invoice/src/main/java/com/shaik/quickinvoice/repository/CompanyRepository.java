@@ -10,5 +10,4 @@ import com.shaik.quickinvoice.model.Company;
 
 public interface CompanyRepository extends JpaRepository<Company,Long> {
 
-//	Company findBycompanyName(String name);
 }

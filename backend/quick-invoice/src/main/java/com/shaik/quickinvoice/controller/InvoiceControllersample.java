@@ -25,7 +25,7 @@ import com.shaik.quickinvoice.service.InvoiceService;
 import jakarta.persistence.EntityManager;
 
 //@RestController
-public class InvoiceController {
+public class InvoiceControllersample {
 	@Autowired
     private InvoiceRepository invoiceRepository;
 

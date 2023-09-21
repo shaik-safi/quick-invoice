@@ -19,7 +19,7 @@ import com.shaik.quickinvoice.repository.CompanyClientRepository;
 import com.shaik.quickinvoice.repository.CompanyRepository;
 
 //@RestController
-public class CompanyClientController {
+public class CompanyClientControllersample {
 
     @Autowired
     private CompanyClientRepository companyClientRepository;

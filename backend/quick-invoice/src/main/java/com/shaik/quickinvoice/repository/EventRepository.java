@@ -9,5 +9,4 @@ import com.shaik.quickinvoice.model.Event;
 import com.shaik.quickinvoice.model.Invoice;
 
 public interface EventRepository extends JpaRepository<Event,Long> {
-//	List<InvoiceDetails> findByInvoiceInvoiceId(Long clientId);
 }

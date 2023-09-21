@@ -19,7 +19,7 @@ import com.shaik.quickinvoice.repository.InvoiceDetailsRepository;
 import com.shaik.quickinvoice.repository.InvoiceRepository;
 
 //@RestController
-public class InvoiceDetailsController {
+public class InvoiceDetailsControllerSample {
 	@Autowired
     private InvoiceDetailsRepository invoiceDetailsRepository;
 
