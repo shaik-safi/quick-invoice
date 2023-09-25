@@ -1,4 +1,4 @@
-package com.shaik.quickinvoice;
+package com.shaik.quickinvoice.controller;
 
 import java.util.List;
 import java.util.Optional;
