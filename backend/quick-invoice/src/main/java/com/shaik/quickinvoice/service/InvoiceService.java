@@ -53,4 +53,9 @@ import com.shaik.quickinvoice.repository.InvoiceRepository;
 	    	long count = invoiceRepository.count();
 	    	return count;
 	    }
+
+		public Optional<Invoice> findInvoiceByEventId(Long id) {
+			Optional<Invoice> invoice = invoiceRepository.findByEventid(id);
+	    	return invoice;
+		}
 	}

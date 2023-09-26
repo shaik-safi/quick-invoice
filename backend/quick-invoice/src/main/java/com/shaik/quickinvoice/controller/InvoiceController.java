@@ -49,6 +49,15 @@ public class InvoiceController {
 	    return ResponseEntity.badRequest().build();
 	}
 	
+	@GetMapping("/find-by-event-id")
+	public ResponseEntity<Optional<Invoice>> findInvoiceByEventId(@RequestParam Long id) {
+		Optional<Invoice> invoice = invoiceService.findInvoiceByEventId(id);
+	    if (invoice.isPresent()) {
+	        return ResponseEntity.ok(invoice);
+	    }
+	    return ResponseEntity.badRequest().build();
+	}
+	
 	@GetMapping("/find-by-name")
 	public ResponseEntity<List<Invoice>> findByName(@RequestParam String name) {
 		List<Invoice> allInvoices = invoiceService.findByName(name);
