@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.shaik.quickinvoice.model.Quotation;
 import com.shaik.quickinvoice.service.QuotationService;
 
-@Controller
+//@Controller
 @RequestMapping("/quotation")
 public class QuotationController {
 

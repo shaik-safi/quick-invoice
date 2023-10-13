@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.shaik.quickinvoice.model.Quotation;
 import com.shaik.quickinvoice.repository.QuotationRepository;
 
-@Service
+//@Service
 public class QuotationService {
 	@Autowired
     private QuotationRepository quotationRepository;

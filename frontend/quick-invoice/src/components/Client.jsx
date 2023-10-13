@@ -26,7 +26,7 @@ function Client() {
   const handleSubmit = async (event) =>{
     event.preventDefault()
     console.log(JSON.stringify(formData));
-    const url = 'http://localhost:8080/add-client';
+    const url = 'http://localhost:8080/client/add';
     const response = await fetch(url,{
       method: 'POST',
       headers:{

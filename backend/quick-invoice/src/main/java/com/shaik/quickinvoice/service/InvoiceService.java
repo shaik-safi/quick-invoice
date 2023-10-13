@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.shaik.quickinvoice.model.Invoice;
 import com.shaik.quickinvoice.repository.InvoiceRepository;
  
- @Service
+// @Service
  public class InvoiceService {
 	 @Autowired
 	    private InvoiceRepository invoiceRepository;
@@ -26,11 +26,6 @@ import com.shaik.quickinvoice.repository.InvoiceRepository;
 	    
 	    public Optional<Invoice> findById(Long id) {
 	    	Optional<Invoice> invoice = invoiceRepository.findById(id);
-	    	return invoice;
-	    }
-	    
-	    public List<Invoice> findByName(String name) {
-	    	List<Invoice> invoice = invoiceRepository.findByName(name);
 	    	return invoice;
 	    }
 	    
@@ -55,7 +50,7 @@ import com.shaik.quickinvoice.repository.InvoiceRepository;
 	    }
 
 		public Optional<Invoice> findInvoiceByEventId(Long id) {
-			Optional<Invoice> invoice = invoiceRepository.findByEventid(id);
+			Optional<Invoice> invoice = invoiceRepository.findByEvent(id);
 	    	return invoice;
 		}
 	}

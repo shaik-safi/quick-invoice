@@ -6,7 +6,7 @@ function ClientList() {
 
   const fetchData = async () => {
     try {
-      const clientUrl = "http://localhost:8080/get-all-client";
+      const clientUrl = "http://localhost:8080/client/find-by-id";
       const clientsResponse = await fetch(clientUrl, {
         method: 'GET'
       });

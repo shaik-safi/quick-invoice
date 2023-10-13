@@ -8,5 +8,5 @@ import com.shaik.quickinvoice.model.Quotation;
 
 public interface QuotationRepository extends JpaRepository<Quotation,Long> {
 
-	List<Quotation> findByName(String name);
+//	List<Quotation> findByName(String name);
 }
