@@ -22,7 +22,7 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String dateIssue;
+    private String date;
     @OneToMany
     private List<ProductDetails> productsList;
     

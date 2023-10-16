@@ -1,56 +1,51 @@
 package com.shaik.quickinvoice.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.shaik.quickinvoice.model.Quotation;
 import com.shaik.quickinvoice.repository.QuotationRepository;
 
-//@Service
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class QuotationService {
-	@Autowired
+
+    @Autowired
     private QuotationRepository quotationRepository;
 
     public Quotation add(Quotation quotation) {
         Quotation savedQuotation = quotationRepository.save(quotation);
         return savedQuotation;
     }
-    
+
     public List<Quotation> findAll() {
-    	List<Quotation> savedQuotations = quotationRepository.findAll();
-    	return savedQuotations;
+        return (List<Quotation>) quotationRepository.findAll();
     }
-    
+
     public Optional<Quotation> findById(Long id) {
-    	Optional<Quotation> quotation = quotationRepository.findById(id);
-    	return quotation;
+        return quotationRepository.findById(id);
     }
-    
-    public List<Quotation> findByName(String name) {
-    	List<Quotation> quotation = quotationRepository.findByName(name);
-    	return quotation;
-    }
-    
+
     public boolean existsById(Long id) {
-    	boolean quotationExists = quotationRepository.existsById(id);
-    	return quotationExists;
+        return quotationRepository.existsById(id);
     }
-    
+
     public boolean deleteById(Long id) {
-    	quotationRepository.deleteById(id);
-    	return true;
+        quotationRepository.deleteById(id);
+        return true;
     }
-    
+
     public boolean deleteQuotation(Quotation quotation) {
-    	quotationRepository.delete(quotation);
-    	return true;
+        quotationRepository.delete(quotation);
+        return true;
     }
-    
+
     public long count() {
-    	long count = quotationRepository.count();
-    	return count;
+        return quotationRepository.count();
+    }
+
+    public Optional<Quotation> findQuotationByEventId(Long id) {
+        return quotationRepository.findByEventId(id);
     }
 }

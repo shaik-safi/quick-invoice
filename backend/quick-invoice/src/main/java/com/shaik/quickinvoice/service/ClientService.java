@@ -1,56 +1,54 @@
 package com.shaik.quickinvoice.service;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.shaik.quickinvoice.model.Client;
 import com.shaik.quickinvoice.repository.ClientRepository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ClientService {
+
     @Autowired
     private ClientRepository clientRepository;
 
-    public Client add(Client client) {
-        Client savedClient = clientRepository.save(client);
-        return savedClient;
+    public Client addClient(Client client) {
+    	Client savedClient = clientRepository.save(client);
+    	return savedClient;
     }
-    
-    public List<Client> findAll() {
-    	List<Client> savedClients = clientRepository.findAll();
-    	return savedClients;
+
+    public List<Client> findAllClients() {
+        return clientRepository.findAll();
     }
-    
-    public Optional<Client> findById(Long id) {
-    	Optional<Client> client = clientRepository.findById(id);
-    	return client;
+
+    public Optional<Client> findClientById(Long id) {
+        return clientRepository.findById(id);
     }
-    
-    public List<Client> findByName(String name) {
-    	List<Client> client = clientRepository.findByName(name);
-    	return client;
+
+    public List<Client> findClientsByName(String name) {
+        return clientRepository.findByName(name);
     }
-    
-    public boolean existsById(Long id) {
-    	boolean clientExists = clientRepository.existsById(id);
-    	return clientExists;
+
+    public boolean existsClientById(Long id) {
+        return clientRepository.existsById(id);
     }
-    
-    public boolean deleteById(Long id) {
-    	clientRepository.deleteById(id);
-    	return true;
+
+    public boolean deleteClientById(Long id) {
+        if (existsClientById(id)) {
+            clientRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
-    
-    public boolean deleteClient(Client client) {
-    	clientRepository.delete(client);
-    	return true;
+
+    public void deleteClient(Client client) {
+        clientRepository.delete(client);
     }
-    
-    public long count() {
-    	long count = clientRepository.count();
-    	return count;
+
+    public long getClientCount() {
+        return clientRepository.count();
     }
 }
