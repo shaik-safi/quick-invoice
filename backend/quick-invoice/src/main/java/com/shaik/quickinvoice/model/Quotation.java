@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Quotation {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
     private String date;
     @OneToMany
