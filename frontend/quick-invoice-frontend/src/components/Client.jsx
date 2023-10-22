@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Client = () => {
+const Client = () => {
   return (
     <div className='text-3xl font-bold underline'>Client</div>
   )
 }
+
+export default Client;
