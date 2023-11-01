@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Table, Modal } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Client from './Client';
 
 function ClientList() {
   const [data, setData] = useState(null);
+  const [showClientModal, setShowClientModal] = useState(false);
 
-  const fetchData = async () => {
+  const handleShowClientModal = () => {
+    setShowClientModal(true);
+  };
+
+  const handleCloseClientModal = () => {
+    setShowClientModal(false);
+  };
+
+  const updateClientList = async () => {
     try {
-      const clientUrl = "http://localhost:8080/client/find-by-id";
+      const clientUrl = "http://localhost:8090/client/find-all";
       const clientsResponse = await fetch(clientUrl, {
         method: 'GET'
       });
@@ -23,12 +34,17 @@ function ClientList() {
   };
 
   useEffect(() => {
-    fetchData();
+    updateClientList();
   }, []);
 
   return (
-    <><Container>
-      <h1 className='mt-3'>List of Clients</h1>
+    <Container>
+      <div className='d-flex justify-content-between align-items-center'>
+        <h1 className='mt-3'>List of Clients</h1>
+        <Button variant="success" onClick={handleShowClientModal}>
+          Add Client
+        </Button>
+      </div>
       <Table bordered className='mt-3'>
         <thead className='table-primary'>
           <tr>
@@ -45,9 +61,9 @@ function ClientList() {
         <tbody>
           {data &&
             data.map((clientData) => (
-              <tr key={clientData.clientId}>
-                <td>{clientData.clientId}</td>
-                <td>{clientData.clientName}</td>
+              <tr key={clientData.id}>
+                <td>{clientData.id}</td>
+                <td>{clientData.name}</td>
                 <td>{clientData.email}</td>
                 <td>{clientData.phone}</td>
                 <td>{clientData.city}</td>
@@ -58,8 +74,16 @@ function ClientList() {
             ))}
         </tbody>
       </Table>
-      </Container>
-    </>
+
+      <Modal show={showClientModal} onHide={handleCloseClientModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Client</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Client onClose={handleCloseClientModal} updateClientList={updateClientList} />
+        </Modal.Body>
+      </Modal>
+    </Container>
   );
 }
 
