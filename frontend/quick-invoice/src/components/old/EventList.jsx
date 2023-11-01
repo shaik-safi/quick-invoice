@@ -3,7 +3,7 @@ import { Container, Table, Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Client from './Client';
 
-function ClientList() {
+function EventList() {
   const [data, setData] = useState(null);
   const [showClientModal, setShowClientModal] = useState(false);
 
@@ -17,7 +17,7 @@ function ClientList() {
 
   const updateClientList = async () => {
     try {
-      const clientUrl = "http://localhost:8090/client/find-all";
+      const clientUrl = "http://localhost:8090/event/find-all";
       const clientsResponse = await fetch(clientUrl, {
         method: 'GET'
       });
@@ -88,4 +88,4 @@ function ClientList() {
   );
 }
 
-export default ClientList;
+export default EventList;

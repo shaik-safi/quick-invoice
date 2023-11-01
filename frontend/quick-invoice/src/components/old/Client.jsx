@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
-function Client({ onClose, updateClientList }) {
+function Client({ onClose}) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,7 +37,6 @@ function Client({ onClose, updateClientList }) {
       if (response.ok) {
         console.log('Client added successfully.');
         onClose();
-        updateClientList(formData);
       } else {
         console.error('Error adding client.');
       }
