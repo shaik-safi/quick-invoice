@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Table, Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import Client from './Client';
+import Event from './Event';
 
 function EventList() {
   const [data, setData] = useState(null);
@@ -41,9 +41,9 @@ function EventList() {
   return (
     <Container>
       <div className='d-flex justify-content-between align-items-center'>
-        <h1 className='mt-3'>List of Clients</h1>
+        <h1 className='mt-3'>Events</h1>
         <Button variant="success" onClick={handleShowClientModal}>
-          Add Client
+          Add Event
         </Button>
       </div>
       <Table bordered className='mt-3'>
@@ -51,12 +51,9 @@ function EventList() {
           <tr>
             <th>sl.no</th>
             <th>Client Name</th>
-            <th>email</th>
-            <th>phone</th>
-            <th>city</th>
-            <th>state</th>
-            <th>zipCode</th>
-            <th>country</th>
+            <th>Date</th>
+            <th>Invoice</th>
+            <th>Quotation</th>
           </tr>
         </thead>
         <tbody>
@@ -68,9 +65,6 @@ function EventList() {
                 <td>{clientData.email}</td>
                 <td>{clientData.phone}</td>
                 <td>{clientData.city}</td>
-                <td>{clientData.state}</td>
-                <td>{clientData.zipCode}</td>
-                <td>{clientData.country}</td>
               </tr>
             ))}
         </tbody>
@@ -81,7 +75,7 @@ function EventList() {
           <Modal.Title>Add Client</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Client onClose={handleCloseClientModal} />
+          <Event onClose={handleCloseClientModal} />
         </Modal.Body>
       </Modal>
     </Container>

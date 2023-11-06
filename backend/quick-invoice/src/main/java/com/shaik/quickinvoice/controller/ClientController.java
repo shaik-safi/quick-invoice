@@ -23,7 +23,12 @@ public class ClientController {
         }
         return ResponseEntity.badRequest().body("Failed to add client");
     }
-
+    
+    @GetMapping("/get-client-names")
+    public ResponseEntity<List<String>> getClientNames() {
+        List<String> clientNames = clientService.getAllClientNames();
+        return ResponseEntity.ok(clientNames);
+    }
     @GetMapping("/find-all")
     public ResponseEntity<List<Client>> findAllClients() {
         List<Client> allClients = clientService.findAllClients();

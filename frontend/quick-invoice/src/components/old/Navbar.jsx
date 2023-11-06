@@ -8,11 +8,12 @@ function Header() {
     <>
       <Navbar bg="dark" data-bs-theme="dark" expand="lg">
       <Container>
-      <Navbar.Brand as={Link} to="/">Navbar</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/">Quick Invoice</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
           <Nav.Link as={Link} to="/client">Client</Nav.Link>
+          <Nav.Link as={Link} to="/event">Event</Nav.Link>
           {/* <Nav.Link as={Link} to="/company">Company</Nav.Link>
           <Nav.Link as={Link} to="/company">Company</Nav.Link>
           <Nav.Link as={Link} to="/company">Company</Nav.Link>

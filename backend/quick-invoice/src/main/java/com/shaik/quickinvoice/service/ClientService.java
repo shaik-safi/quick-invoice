@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import com.shaik.quickinvoice.model.Client;
 import com.shaik.quickinvoice.repository.ClientRepository;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +16,9 @@ public class ClientService {
 
     @Autowired
     private ClientRepository clientRepository;
+    
+    @Autowired
+    private EntityManager entityManager;
 
     public Client addClient(Client client) {
     	Client savedClient = clientRepository.save(client);
@@ -51,4 +57,12 @@ public class ClientService {
     public long getClientCount() {
         return clientRepository.count();
     }
+    
+    public List<String> getAllClientNames() {
+        String queryString = "SELECT c.name FROM Client c";
+        Query query = entityManager.createQuery(queryString);
+        List<String> results = query.getResultList();
+        return results;
+    }
+
 }
