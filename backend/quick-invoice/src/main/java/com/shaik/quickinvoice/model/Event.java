@@ -22,7 +22,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	private String name;
-	private Date date;
+	private String date;
 	
 	@ManyToOne
     @JoinColumn(name = "client_id")
