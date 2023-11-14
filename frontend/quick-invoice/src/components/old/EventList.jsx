@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Table, Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Event from './Event';
+import './Scroll.css';
 
 function EventList() {
   const [data, setData] = useState(null);
@@ -25,7 +26,7 @@ function EventList() {
       if (clientsResponse.ok) {
         const clientsData = await clientsResponse.json();
         setData(clientsData);
-        console.error('API Called');
+        console.log('API Called');
       } else {
         console.error('API request failed');
       }
@@ -46,25 +47,21 @@ function EventList() {
           Add Event
         </Button>
       </div>
-      <Table bordered className='mt-3'>
+      <Table bordered className='mt-3 scrollable-table'>
         <thead className='table-primary'>
           <tr>
             <th>sl.no</th>
-            <th>Client Name</th>
+            <th>Event Name</th>
             <th>Date</th>
-            <th>Invoice</th>
-            <th>Quotation</th>
           </tr>
         </thead>
         <tbody>
           {data &&
-            data.map((clientData) => (
-              <tr key={clientData.id}>
-                <td>{clientData.id}</td>
-                <td>{clientData.name}</td>
-                <td>{clientData.email}</td>
-                <td>{clientData.phone}</td>
-                <td>{clientData.city}</td>
+            data.map((eventData) => (
+              <tr key={eventData.id}>
+                <td>{eventData.id}</td>
+                <td>{eventData.name}</td>
+                <td>{eventData.date}</td>
               </tr>
             ))}
         </tbody>
@@ -72,10 +69,10 @@ function EventList() {
 
       <Modal show={showClientModal} onHide={handleCloseClientModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Client</Modal.Title>
+          <Modal.Title>Add Event</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Event onClose={handleCloseClientModal} />
+          <Event onClose={handleCloseClientModal} updateClientList={updateClientList} />
         </Modal.Body>
       </Modal>
     </Container>

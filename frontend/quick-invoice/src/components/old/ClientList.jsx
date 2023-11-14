@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Table, Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Client from './Client';
+import './Scroll.css';
 
 function ClientList() {
   const [data, setData] = useState(null);
@@ -25,7 +26,7 @@ function ClientList() {
       if (clientsResponse.ok) {
         const clientsData = await clientsResponse.json();
         setData(clientsData);
-        console.error('API Called');
+        console.log('API Called');
       } else {
         console.error('API request failed');
       }
@@ -46,7 +47,7 @@ function ClientList() {
           Add Client
         </Button>
       </div>
-      <Table bordered className='mt-3'>
+      <Table bordered className='mt-3 scrollable-table'>
         <thead className='table-primary'>
           <tr>
             <th>sl.no</th>
@@ -81,7 +82,7 @@ function ClientList() {
           <Modal.Title>Add Client</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Client onClose={handleCloseClientModal} />
+          <Client onClose={handleCloseClientModal} updateClientList={updateClientList} />
         </Modal.Body>
       </Modal>
     </Container>

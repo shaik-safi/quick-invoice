@@ -18,12 +18,13 @@ public class EventController {
     private EventService eventService;
 
     @PostMapping("/add")
-    public ResponseEntity<String> addEvent(@RequestBody Event event) {
+    public ResponseEntity<Object> addEvent(@RequestBody Event event) {
+        System.out.println("Received Event: " + event);
         Event savedEvent = eventService.addEvent(event);
         if (savedEvent != null) {
-            return ResponseEntity.ok("Event saved");
+            return ResponseEntity.ok().body("{\"status\": \"success\", \"message\": \"Event saved\"}");
         }
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.badRequest().body("{\"status\": \"error\", \"message\": \"Failed to save event\"}");
     }
 
     @GetMapping("/find-all")
